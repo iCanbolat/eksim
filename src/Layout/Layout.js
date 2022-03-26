@@ -8,11 +8,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
  
@@ -111,14 +109,12 @@ const Layout = ({ children }) => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              style={{ color:'red' }}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
@@ -174,6 +170,7 @@ const Layout = ({ children }) => {
       </Container>
     </AppBar>
  
+    
         {children}
     
     </>
