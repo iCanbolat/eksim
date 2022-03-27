@@ -11,7 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 //   '&:focus': {
 //     backgroundColor: 'green', 
 //   }
-// })); :hover çalışırken :focus çalışmıyor ? 
+// }));  
   
 
 const Information = () => {
@@ -36,7 +36,7 @@ const Information = () => {
           justifyContent:'center'
         }}
       >
-      <Typography variant="h3" color='white' component="div">
+      <Typography variant="h3" style={{textAlign:'center'}} color='white' component="div">
         Bilgi Toplumu Hizmetleri
       </Typography>
       </Box>

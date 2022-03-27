@@ -146,7 +146,7 @@ const Humanr = () => {
         </Grid>
 
         
-        <Grid item md={12} >
+        <Grid item md={12} xs={12} >
         <Typography variant="h5" sx={{ mb:5, textAlign:'center', color:'#3fa435', fontWeight:'bold' }} component="div">
           Açık Pozisyonlar
         </Typography>

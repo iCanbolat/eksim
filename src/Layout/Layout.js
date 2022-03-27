@@ -27,6 +27,10 @@ const Search = styled('div')(({ theme }) => ({
       marginLeft: theme.spacing(1),
       width: 'auto',
     },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
   }));
   
   const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -51,6 +55,12 @@ const Search = styled('div')(({ theme }) => ({
         width: '12ch',
         '&:focus': {
           width: '20ch',
+        },
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '1ch',
+        '&:focus': {
+          width: '7ch',
         },
       },
     },
