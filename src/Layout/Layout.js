@@ -13,14 +13,22 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
+import { useNavigate } from 'react-router-dom';
+
+const StyledButton = styled(Button)(({ theme }) => ({
+    '&:active': {
+      border: '2px dotted',
+
+
+    }
+}))
  
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: 'blue',
-    '&:hover': {
-      backgroundColor: 'black',
-    },
+    backgroundColor: 'transparent',
+    color:'black',
+    
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -48,11 +56,12 @@ const Search = styled('div')(({ theme }) => ({
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      paddingLeft: `calc(1em + ${theme.spacing(3)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
+      
       [theme.breakpoints.up('sm')]: {
-        width: '12ch',
+        width: '1ch',
         '&:focus': {
           width: '20ch',
         },
@@ -69,34 +78,49 @@ const Search = styled('div')(({ theme }) => ({
 
 const pages = 
     [
-     'Kurumsal',
-     'Enerji Üretim',
-     'Elektrik Toptan Satış',
-     'Doğal Gaz İthalat',
-     'İnsan Kaynakları',
-     'Bilgi Toplum Hizmetleri',
-     'İletişim'
+      {
+        "name" : 'Kurumsal',
+        "path" : "/kurumsal"
+      },
+      {
+        "name" : "Enerji Üretim",
+        "path" : "/enerji"
+      },
+      {
+        "name" : "Elektrik Toptan Satış",
+        "path" : "/elektrik-satis"
+      },
+      {
+        "name" : "Doğal Gaz İthalat",
+        "path" : "/dogalgaz"
+      },
+      {
+        "name" : "İnsan Kaynakları",
+        "path" : "/insan-kaynaklari"
+      },
+      {
+        "name" : "Bilgi Toplum Hizmetleri",
+        "path" : "/bilgi"
+      },
+      {
+        "name" : "İletişim",
+        "path" : "/iletisim"
+      }
     ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Layout = ({ children }) => {
+    const history = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
   
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-      setAnchorElUser(event.currentTarget);
-    };
-  
-    const handleCloseNavMenu = () => {
+
+    const handleCloseNavMenu = (path) => {
+      history(path)
       setAnchorElNav(null);
     };
-  
-    const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };
+
 
   return (
       <>
@@ -112,7 +136,7 @@ const Layout = ({ children }) => {
             EKSİM <br></br> ENERJİ
           </Typography>
           <Divider orientation="vertical" flexItem />
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1,   display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -141,38 +165,32 @@ const Layout = ({ children }) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} 
+                  sx={{ justifyContent: 'flex-end' }} 
+                  onClick={() => {handleCloseNavMenu(page.path)} }>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          
+          <Box sx={{ flexGrow: 1, mb:1, justifyContent: 'flex-end', display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => {handleCloseNavMenu(page.path)} }
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
           <Divider orientation="vertical" flexItem />
-          <Search>
+          <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
