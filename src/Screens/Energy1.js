@@ -1,103 +1,157 @@
-import React from 'react'
-import Image from './image.png'
-import { Box, Container, Grid, Typography } from '@mui/material'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import React from "react";
+import Image from "./assets/enerji.jpg";
+import Gul from "./assets/gul.jpg";
+import Hidro from "./assets/hidro.jpg"
+import Gunes from "./assets/gunes.jpg"
+import Biyo from "./assets/biyo.jpg"
+import {
+  Box,
+  CardActionArea,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import { useNavigate } from "react-router-dom";
 
 const Energy1 = () => {
+  const history = useNavigate();
+
   return (
     <>
-     <Grid container >
-      <Grid 
-      item xs={12} 
-      style={{ height:300,width:'100%', backgroundImage: 'url(' + Image + ')'}}
-      >
-        <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height:'100%',
-          justifyContent:'center'
-        }}
-      >
-      <Typography variant="h3" color='white' component="div">
-        Enerji Üretim
-      </Typography>
-      </Box>
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+          style={{
+            height: 300,
+            width: "100%",
+            backgroundImage: "url(" + Image + ")",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              height: "100%",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h3" color="white" component="div">
+              Enerji Üretim
+            </Typography>
+          </Box>
+        </Grid>
       </Grid>
-    </Grid>
 
-    <Container sx={{ my:5 }}>
+      <Container sx={{ my: 5 }}>
         <Grid container spacing={6}>
-
-        <Grid item md={6} xs={12}>
-        <Card style={{ minHeight: 500 }}>
-            <CardContent sx={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    height:500,
-                    px:5
-                    }}>
-                <Typography variant="h4"component="div">
+          <Grid item md={6} xs={12}>
+            <CardActionArea
+              onClick={() => {
+                history("/ruzgar-enerjisi");
+                window.scrollTo(0, 0);
+              }}
+            >
+              <Card style={{ minHeight: 500 }}>
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    height: 500,
+                    px: 5,
+                    width: "100%",
+                    backgroundImage: "url(" + Gul + ")",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                  }}
+                >
+                  <Typography variant="h4" color='white' component="div">
                     Rüzgar Enerjisi <br></br> Santralleri
-                </Typography>
-               
-            </CardContent>
-        </Card>
-        </Grid>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </CardActionArea>
+          </Grid>
 
-        <Grid item md={6} xs={12}>
-        <Card style={{ minHeight: 500 }}>
-            <CardContent sx={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    height:500,
-                    px:5
-                    }}>
-                <Typography variant="h4"component="div">
+          <Grid item md={6} xs={12}>
+            <CardActionArea>
+              <Card style={{ minHeight: 500 }}>
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    height: 500,
+                    px: 5,
+                    backgroundImage: "url(" + Hidro + ")",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                  }}
+                >
+                  <Typography variant="h4" color='white' component="div">
                     Hidroelektrik <br></br> Santralleri
-                </Typography>
-               
-            </CardContent>
-        </Card>
-        </Grid>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </CardActionArea>
+          </Grid>
 
-        <Grid item md={6} xs={12}>
-        <Card style={{ minHeight: 500 }}>
-            <CardContent sx={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    height:500,
-                    px:5
-                    }}>
-                <Typography variant="h4"component="div">
+          <Grid item md={6} xs={12}>
+            <CardActionArea>
+              <Card style={{ minHeight: 500 }}>
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    height: 500,
+                    px: 5,
+                    backgroundImage: "url(" + Gunes + ")",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                  }}
+                >
+                  <Typography variant="h4" color='white' component="div">
                     Güneş Enerjisi <br></br> Santralleri
-                </Typography>
-               
-            </CardContent>
-        </Card>
-        </Grid>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </CardActionArea>
+          </Grid>
 
-        <Grid item md={6} xs={12}>
-        <Card style={{ minHeight: 500 }}>
-            <CardContent sx={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    height:500,
-                    px:5
-                    }}>
-                <Typography variant="h4"component="div">
+          <Grid item md={6} xs={12}>
+            <CardActionArea>
+              <Card style={{ minHeight: 500 }}>
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    height: 500,
+                    px: 5,
+                    backgroundImage: "url(" + Biyo + ")",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    opacity:'72%'
+                  }}
+                >
+                  <Typography variant="h4" color='white' component="div">
                     Biyokütle Enerji <br></br> Santralleri
-                </Typography>
-               
-            </CardContent>
-        </Card>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </CardActionArea>
+          </Grid>
         </Grid>
-      
-        </Grid>
-    </Container>
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default Energy1
+export default Energy1;

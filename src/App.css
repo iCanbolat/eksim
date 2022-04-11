@@ -1,5 +1,12 @@
+@import "react-slideshow-image/dist/styles.css";
+
 .App {
   text-align: center;
+}
+
+.indicators {
+  margin-top: -30px !important;
+  height: 0;
 }
 
 .App-logo {
