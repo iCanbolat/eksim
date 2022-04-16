@@ -76,9 +76,18 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const StyledLogo = styled(Box)(({ theme }) => ({
-  width: "10%",
+   
   [theme.breakpoints.down("sm")]: {
     display: "none",
+    width:"0%"
+  },
+  [theme.breakpoints.up("sm")]: {
+    display: "none",
+    width:"0%"
+  },
+  [theme.breakpoints.up("md")]: {
+    display: "flex",
+    width:"10%"
   },
 }));
 
@@ -181,10 +190,18 @@ const Layout = ({ children }) => {
       <AppBar position="static" style={{ backgroundColor: "white" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <StyledLogo>
-              <img style={{ width: "80%", height: "7%" }} src={Logo} />
-            </StyledLogo>
-            <Divider orientation="vertical" flexItem />
+          <StyledLogo>
+              <Box 
+              component='img' 
+              sx={{ width: "80%", cursor:'pointer', height: "7%", display:{ xs:"none", md:"flex" } }}
+              src={Logo} 
+              onClick={() => {
+                history("/");
+                window.scrollTo(0, 0);
+              }}
+              />
+            </StyledLogo> 
+            <Divider orientation="vertical" sx={ {display:{ xs:"none", md:"flex" } }} flexItem />
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -463,7 +480,7 @@ const Layout = ({ children }) => {
         <StyledGrid2 item xs={12}>
           <Container>
             <Typography variant="subtitle1" gutterBottom component="div">
-              Copyrights &copy; 2021 EKSİM ENERJİ. Her Hakkı saklıdır.
+              Copyrights &copy; {(new Date().getFullYear())} EKSİM ENERJİ. Her Hakkı saklıdır.
             </Typography>
           </Container>
         </StyledGrid2>

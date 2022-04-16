@@ -28,9 +28,11 @@ import Gul from "./assets/gul.jpg";
 import Hidro from "./assets/hidro.jpg";
 import Gunes from "./assets/gunes.jpg";
 import Biyo from "./assets/biyo.jpg";
+import Yesil from "./assets/contact_image.jpg"
 import Dogal2 from "./assets/dogalgaz3.jpg";
 import Elektrik3 from "./assets/elektrik3.jpg";
 import Slider1 from "./assets/slider.jpg";
+import { useNavigate } from "react-router-dom";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "white",
@@ -131,6 +133,8 @@ const Home = () => {
   const [age, setAge] = React.useState("");
   const [selectedValue, setSelectedValue] = React.useState("a");
 
+  const history = useNavigate()
+
   const handleChangeRadio = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -177,6 +181,10 @@ const Home = () => {
                         variant="contained"
                         size="large"
                         sx={{ px: 4, py: 2, width: "20%", mr: 2 }}
+                        onClick={() => {
+                          history("/enerji");
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         Devamını Gör
                       </StyledButton>
@@ -225,6 +233,10 @@ const Home = () => {
                   variant="contained"
                   size="large"
                   sx={{ px: 4, py: 2, mr: 2, mt: 2 }}
+                  onClick={() => {
+                    history("/enerji");
+                    window.scrollTo(0, 0);
+                  }}
                 >
                   Devamını Gör
                 </StyledButton> 
@@ -454,11 +466,20 @@ const Home = () => {
           item
           xs={12}
           md={12}
-          style={{ width: "100%", backgroundColor: "#3fa435" }}
+          style={{
+            width: "100%",
+            backgroundImage: "url(" + Yesil + ")",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            position:'relative'
+          }}
         >
+          <Box sx={{position:"absolute",width:"100%",height:"100%",background: "#3fa435e8"}}></Box>
+
           <Container sx={{ padding: "7% 7% 0%" }}>
             <Grid container spacing={5} sx={{ mb: 2, pr: 4 }}>
-              <Grid item md={5}>
+              <Grid item md={5} sx={{ zIndex:300 }}>
                 <Typography
                   variant="h4"
                   color="white"
@@ -490,7 +511,7 @@ const Home = () => {
                   ut
                 </Typography>
               </Grid>
-              <Grid item md={7} xs={12}>
+              <Grid item md={7} xs={12} sx={{ zIndex:300 }}>
                 <Card
                   sx={{
                     width: "100%",

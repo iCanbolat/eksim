@@ -94,7 +94,8 @@ const Energy1 = () => {
                     backgroundSize: "cover",
                   }}
                 >
-                  <Typography variant="h4" color='white' component="div">
+                  <Typography 
+                  variant="h4" color='white' component="div">
                     Hidroelektrik <br></br> Santralleri
                   </Typography>
                 </CardContent>
@@ -138,10 +139,26 @@ const Energy1 = () => {
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    opacity:'72%'
+                    position:'relative'
                   }}
                 >
-                  <Typography variant="h4" color='white' component="div">
+                  <Box
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          zIndex: "10",
+                          left: 0,
+                          top: 0,
+                          position: "absolute",
+                          background: "#57a6ca8a",
+                        }}
+                      />
+                  <Typography
+                  sx={{
+                    position: "absolute",
+                    zIndex: 20,
+                  }}
+                  variant="h4" color='white' component="div">
                     Biyokütle Enerji <br></br> Santralleri
                   </Typography>
                 </CardContent>
